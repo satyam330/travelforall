@@ -1,4 +1,4 @@
-//package.js
+// models/Package.js (Updated)
 const mongoose = require('mongoose');
 
 const PackageSchema = new mongoose.Schema({
@@ -16,6 +16,11 @@ const PackageSchema = new mongoose.Schema({
   destination: {
     type: String,
     required: [true, 'Please add a destination'],
+  },
+  city: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'City',
+    required: [true, 'Please select a city']
   },
   duration: {
     days: {
@@ -59,6 +64,11 @@ const PackageSchema = new mongoose.Schema({
   accommodation: {
     type: String,
     required: [true, 'Please specify accommodation type'],
+  },
+    // models/Package.js - Add this field to your existing Package schema
+  state: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'State'
   },
   images: {
     type: [String],
